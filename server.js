@@ -20,13 +20,19 @@ app.get('/login', function (req,res){
 // registration route (brandon)
 app.get('/register', function (req,res){
   console.log('we hit student registration')
-  res.render('register');
+  res.send('register');
 });
 
 // admin login route (anthony)
+app.get('/login', function (req,res){
+  console.log('we hit admin log in')
+  res.send('welcome to admin log in page');
+});
 
-// admin registration route (antony)
-
+ // admin registration route (antony)
+app.get('/register', function (req,res){
+  console.log('we hit admin registration')
+  res.send('admin-register');
 // admin dash route (keshari)
 app.get('/admin-dash', function (req, res) {
   console.log("you hit the admin dash route");
