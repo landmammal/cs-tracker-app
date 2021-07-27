@@ -20,7 +20,7 @@ app.get('/login', function (req,res){
 // registration route (brandon)
 app.get('/register', function (req,res){
   console.log('we hit student registration')
-  res.render('register');
+  res.send('register page here');
 });
 
 // admin login route (anthony)
