@@ -1,0 +1,22 @@
+{
+  "name": "cs-tracker-app",
+  "version": "1.0.0",
+  "description": "A simple to use Community service hours tracker.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/landmammal/cs-tracker-app.git"
+  },
+  "author": "Icreate <idevelopedreams@gmail.com> (http://live2create.me/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/landmammal/cs-tracker-app/issues"
+  },
+  "homepage": "https://github.com/landmammal/cs-tracker-app#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
