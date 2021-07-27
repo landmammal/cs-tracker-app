@@ -12,9 +12,12 @@ app.get('/profile', function (req, res) {
 // student log hours route (anthony)
 
 // log in route (brandon)
+router.get('/', (req,res)=>{
+  res.render('welcome');
 
 // registration route (brandon)
-
+router.get('/register', (req,res)=>{
+  res.render('register');
 
 // admin login route (anthony)
 
