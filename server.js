@@ -7,17 +7,21 @@ const app = express()
 app.get('/profile', function (req, res) {
   console.log("you hit the profile route");
   res.send('profile page here')
-})
+});
 
 // student log hours route (anthony)
 
 // log in route (brandon)
-router.get('/', (req,res)=>{
-  res.render('welcome');
+app.get('/login', function (req,res){
+  console.log('we hit student log in')
+  res.send('welcome to log in page');
+});
 
 // registration route (brandon)
-router.get('/register', (req,res)=>{
+app.get('/register', function (req,res){
+  console.log('we hit student registration')
   res.render('register');
+});
 
 // admin login route (anthony)
 
