@@ -9,11 +9,12 @@ app.get('/profile', function (req, res) {
   res.send('profile page here')
 });
 
-// student log hours route (anthony)
+// student log hours route (keshari)
 app.get('/log-hours', function (req, res) {
   console.log("you hit the log hours route");
   res.send('log hours page here')
 });
+// student log hours route (keshari)
 
 // log in route (brandon)
 app.get('/login', function (req,res){
@@ -24,12 +25,12 @@ app.get('/login', function (req,res){
 // registration route (brandon)
 app.get('/register', function (req,res){
   console.log('we hit student registration')
-  res.render('register');
+  res.send('register page here');
 });
 
-// admin login route (anthony)
+// admin login route (brandon)
 
-// admin registration route (antony)
+// admin registration route (brandon)
 
 // admin dash route (keshari)
 app.get('/admin-dash', function (req, res) {
