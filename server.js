@@ -1,12 +1,16 @@
 const express = require('express')
 const app = express()
  
+// middleware
+app.set('view-engine', 'ejs');
+
+
 // app routes
 
 // student profile route
 app.get('/profile', function (req, res) {
   console.log("you hit the profile route");
-  res.send('profile page here')
+  res.render('profile.ejs');
 });
 
 // student log hours route (keshari)
@@ -14,7 +18,6 @@ app.get('/log-hours', function (req, res) {
   console.log("you hit the log hours route");
   res.send('log hours page here')
 });
-// student log hours route (keshari)
 
 // log in route (brandon)
 app.get('/login', function (req,res){
@@ -28,16 +31,15 @@ app.get('/register', function (req,res){
   res.send('student register');
 });
 
-// admin login route (brandon)
+// admin login route (anthony)
 app.get('/admin-login', function (req,res){
   console.log('we hit admin log in')
   res.send('welcome to admin log in page');
 });
 
- // admin registration route (brandon)
+ // admin registration route (anthony)
 app.get('/admin-register', function (req,res){
   console.log('we hit admin registration')
-  res.send('admin-register');
   res.send('admin register page here');
 });
 
