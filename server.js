@@ -19,18 +19,27 @@ app.get('/log-hours', function (req, res) {
 // log in route (brandon)
 app.get('/login', function (req,res){
   console.log('we hit student log in')
-  res.send('welcome to log in page');
+  res.send('welcome to student log in page');
 });
 
 // registration route (brandon)
 app.get('/register', function (req,res){
   console.log('we hit student registration')
-  res.send('register page here');
+  res.send('student register');
 });
 
 // admin login route (brandon)
+app.get('/admin-login', function (req,res){
+  console.log('we hit admin log in')
+  res.send('welcome to admin log in page');
+});
 
-// admin registration route (brandon)
+ // admin registration route (brandon)
+app.get('/admin-register', function (req,res){
+  console.log('we hit admin registration')
+  res.send('admin-register');
+  res.send('admin register page here');
+});
 
 // admin dash route (keshari)
 app.get('/admin-dash', function (req, res) {
