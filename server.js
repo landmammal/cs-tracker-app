@@ -10,6 +10,11 @@ app.get('/profile', function (req, res) {
 });
 
 // student log hours route (keshari)
+app.get('/log-hours', function (req, res) {
+  console.log("you hit the log hours route");
+  res.send('log hours page here')
+});
+// student log hours route (keshari)
 
 // log in route (brandon)
 app.get('/login', function (req,res){
