@@ -10,4 +10,3 @@ Anthony Alvarez
 
 
 check out our app live at: https://cs-tracker-app.herokuapp.com/profile
-
