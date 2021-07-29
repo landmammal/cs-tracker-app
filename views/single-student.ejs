@@ -1,1 +1,140 @@
-<h1>Single Student page placeholder</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- reset css -->
+    <link rel="stylesheet" href="../css/reset.css">
+    <!-- font styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Poppins&display=swap" rel="stylesheet">
+    <!-- main styles -->
+    <link rel="stylesheet" href="../css/main.css">
+    
+    <!-- tablet styles -->
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <title>CS Tracker</title>
+</head>
+<body>
+  <!-- navigation system -->
+  <nav>
+      <img src="../img/logo.svg" alt="CS tracker logo" id="logo">
+      <h2 id="app-title">CS Tracker</h2>
+      <img src="../img/hamburger-menu.svg" alt="Menu" id="menu-icon">
+  </nav>
+
+
+    <!-- profile -->
+    <div id="section">
+      <img id="profile-pic" src="../img/profile-img.svg" alt="profile picture">
+      <h3>Jon Doe</h3>
+    </div>
+
+    <!-- student info -->
+    <div   id="bkg" id="bkg2">
+
+      <div id="hours-title">
+        <h4 class="text1">Hours done:</h4>
+        <h4 class="text1">Hours Missing:</h4>
+        <h4 class="text1">Hours Unconfirmed:</h4>
+      </div>
+      <div id="hours">
+        <h4 class="hours">15</h4>
+        <h4 class="hours">9</h4>
+        <h4 class="hours">17</h4>
+      </div>
+    </div>
+
+    <!-- unconfirmed hours -->
+    <h3 id="ss-title"> Unconfirmed Hours</h3>
+    <div class="table-bkg">
+        <table id="ss-table">
+          <tr>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Hour</th>
+            <th>Contact</th>
+            <th>Confirmed</th>
+          </tr>
+          <tr>
+            <td>3/18/20</td>
+            <td>Beach</td>
+            <td>4 H</td>
+            <td>786-908-6469</td>
+            <td> 
+                <input type="checkbox">
+                <label for="confirmed"> </label>
+            </td>
+          </tr>
+          <tr>
+            <td>3/20/20</td>
+            <td>School</td>
+            <td>4 H</td>
+            <td>786-908-6469</td>
+            <td>
+                <input type="checkbox">
+                <label for="confirmed"> </label>    
+            </td>
+          </tr>
+          <tr>
+            <td>3/22/20</td>
+            <td>Park</td>
+            <td>5 H</td>
+            <td>786-908-6469</td>
+            <td>
+                <input type="checkbox">
+                <label for="confirmed"> </label>
+            </td>
+          </tr>
+          <tr>
+            <td>3/24/20</td>
+            <td>Downtown Office</td>
+            <td>2 H</td>
+            <td>786-908-6469</td>
+            <td>
+                <input type="checkbox">
+                <label for="confirmed"> </label>
+            </td>
+          </tr>
+          <tr>
+            <td>3/26/20</td>
+            <td>School</td>
+            <td>6 H</td>
+            <td>786-908-6469</td>
+            <td>
+                <input type="checkbox">
+                <label for="confirmed"> </label>
+            </td>
+          </tr>
+          <tr>
+            <td>3/28/20</td>
+            <td>Zoo</td>
+            <td>3 H</td>
+            <td>786-908-6469</td>
+            <td>
+                <input type="checkbox">
+                <label for="confirmed"> </label>
+            </td>
+          </tr>
+        </table>
+    </div>
+
+    
+    <button type="button" id="save-button" class="form-button">Save</button>
+    
+  
+
+  <!-- footer -->
+  <footer>
+    <ul>
+        <li><a href="about.html">about</a></li>
+        <li><a href="contact-us.html">contact</a></li>
+        <li><a href="">social</a></li>
+    </ul>
+    <p>&copy; 2021 CS Tracker</p>
+  </footer>
+</body>
+</html>
