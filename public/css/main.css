@@ -1,0 +1,348 @@
+body{
+    font-family: 'Dosis', sans-serif;
+}
+
+
+/* ***************************************
+    Mobile Styles
+*************************************** */
+
+
+/* styling navigation */
+#app-title {
+    display: inline-block;
+    position: absolute;
+    top: 7px;
+    left: 35.5%;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    line-height: 30px;
+    color: #F71735;
+}
+
+nav {
+    height: 40px;
+    background-color: #1E1B11;
+}
+
+#logo {
+    width: 35.5px;
+    height: 36.75px;
+    margin-left: 10px;
+    margin-top: 2px;
+}
+
+#menu-icon {
+    margin-top: 12px;
+    margin-right: 10px;
+    float: right;
+    width: 33.06px;
+    height: 16px;
+}
+
+/* ***************************************
+    profile styles
+*************************************** */
+
+#section {
+    /* margin-left: 25%;
+    margin-right: 25%; 
+    margin-top: 19px;
+    margin-bottom: 19px;
+    */
+    margin: 19px 25%;
+    font-size: 22.62px;
+    text-align: center;
+}
+
+#profile-pic {
+    margin-bottom: 15px;
+    border-radius: 50%;
+    width: 147px;
+    height: 147px;
+}
+
+
+
+#bkg {
+    margin: 15px auto;
+    padding: 13px 13px;
+    background: rgb(31 31 30 / 85%);
+    width: 244px;
+    border-radius: 10px;
+}
+
+#hours-title {
+    width: 80%;
+    display: inline;
+    float: left;
+}
+
+.text1 {
+    margin: 13px 0 8.7px 10.48px ;
+    display: inline-block;
+    color: white;
+    font-family: 'Dosis', sans-serif;
+    font-size: 18px;
+}
+
+#hours {
+    display: inline;
+    width: 20%;
+}
+
+.hours {
+    margin: 13px 36px 8.7px 0;
+    display: inline-block;
+    color: white;
+    font-family: 'Dosis', sans-serif;
+    font-size: 18px;
+}
+
+#add-hours {
+    border-style: none;
+    height: 46px;
+    width: 126px;
+    font-size: 16px;
+    font-family: 'Dosis', sans-serif;
+    margin-left: 25%;
+    margin-top: 10%;
+    border-radius: 97px;
+}
+
+
+#add-hours img {
+    width: 30px;
+    height: 31px;
+}
+
+#add-hours span {
+    margin-right: 6px;
+    /* font-size: 16px; */
+    margin-top: 6px;
+    /* line-height: 100%; */
+    /* margin-bottom: 32px; */
+    float: right;
+}
+
+#info-text {
+    margin-bottom: 6%;
+}
+
+
+/* ***************************************
+    History Log Styles
+*************************************** */
+
+#table-bg {
+    background: rgba(196, 196, 196, 0.5);
+    padding-top: 36px;
+    padding-bottom: 11px;
+    margin-bottom: 15px;
+}
+
+table {
+    font-family: 'Dosis',sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    word-break: break-all;
+    border-bottom: 1px solid rgb(131, 131, 131);
+    text-align: left;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    padding-bottom: 36px;
+}
+    
+tr:hover {
+    background-color: #f2f2f2;
+}
+
+
+
+
+
+/* ***************************************
+    footer styles
+*************************************** */
+
+footer {
+    position: absolute;
+    height: 51px;
+    width: 100%;
+    background-color: rgba(31, 31, 30, 0.85);
+    padding-top: 8px;
+}
+
+li {
+    line-height: 14px;
+    font-size: 11.32px;
+    margin-right: 20%;
+    display: inline;
+}
+
+ul {
+    margin-left: 20%;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+p {
+    margin: 8.75px 40%;
+    line-height: 10px;
+    font-size: 8px;
+    color: #fff;
+}
+
+
+
+
+/* ***************************************
+   Registration styles
+*************************************** */
+
+/* ***************************************
+   page  heading styles
+*************************************** */
+
+#student-register{
+   text-align: center;
+   font-size: 32px;
+   margin-top: 12%;
+}
+
+
+
+/* ***************************************
+    form styles
+*************************************** */
+
+  .form-checkbox{
+    margin-bottom: 11px;
+    margin-top: 11px;
+  }
+
+
+
+/**************************
+    LOG HOURS Page
+**************************/
+.form-backdrop {
+    border-radius: 5px;
+    padding-top: 10px;
+    background: rgba(196, 196, 196, 0.1);
+    padding-bottom: 20.61px;
+    text-align: center;
+    width: 90%;
+    margin: 24px auto 25px;
+}
+
+.form-button {
+    color: #1E1B11;
+    font-size: 16px;
+    width: 121px;
+    border-radius: 20px;
+    background: rgba(62, 146, 204, 1);
+    margin-top: 10px;
+    height: 49px;
+    border-style: none;
+}
+
+.form-title {
+    color: #1E1B11;
+    font-family: 'Poppins';
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+.form-input{
+    margin-bottom: 10px;
+    background: rgba(196, 196, 196, 1);
+    border-style: none;
+    border-radius: 126px;
+    height: 40px;
+    width: 80%;
+}
+
+.form {
+    margin-bottom: 1px;
+}
+
+.form ::placeholder {
+  padding-left: 20px;
+}
+
+/**************************
+    Admin Dashboard
+**************************/
+
+
+.table-bkg {
+    margin-bottom: 15px;
+    background: rgba(196, 196, 196, 1);
+    padding-top: 5px;
+    padding-bottom: 13px;
+    clear: both;
+
+}
+
+#table-title{
+    display: inline-block;
+    font-family: 'Dosis', sans-serif;
+    font-size: 22px;
+    margin-left: 40%;
+    margin-top: 15px;
+}
+
+#table-title2{
+    display: inline-block;
+    font-family: 'Dosis', sans-serif;
+    font-size: 22px;
+    margin-left: 28%;
+    margin-top: 15px;
+}
+
+.search-box{
+    float: right;
+    font-family: 'Dosis', sans-serif;
+    font-size: 15px;
+    margin-top: 12px;
+    width: 170px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+}
+
+.search-icon{
+    margin-top: 15px;
+    float: right;
+    width: 20px;
+    margin-right: -176px;
+}
+
+/**************************
+    Student Show
+**************************/
+#save-button {
+    display: block;
+    margin: 30px auto;
+}
+
+#ss-title {
+    margin-top: 30px;
+    text-align: center;
+    margin-bottom: 5%;
+    font-size: 22px;
+}
+
+
+#ss-table{
+    font-size: 14px;
+}

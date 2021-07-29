@@ -1,1 +1,104 @@
-<h1>Profile page placeholder</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- reset css -->
+    <link rel="stylesheet" href="../css/reset.css">
+    <!-- font styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Poppins&display=swap" rel="stylesheet">
+    <!-- main styles -->
+    <link rel="stylesheet" href="../css/main.css">
+    <!-- tablet styles -->
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <title>CS Tracker</title>
+</head>
+<body>
+    <!-- navigation system -->
+    <nav>
+        <img src="../img/logo.svg" alt="CS tracker logo" id="logo">
+        <h2 id="app-title">CS Tracker</h2>
+        <img src="../img/hamburger-menu.svg" alt="Menu" id="menu-icon">
+    </nav>
+
+    <div id="wrapper">
+      <!-- profile -->
+      <div id="section">
+        <img id="profile-pic" src="../img/profile-img.svg" alt="profile picture">
+        <h3>Jon Doe</h3>
+      </div>
+
+      <!-- student info -->
+      <div id="bkg">
+
+        <div id="hours-title">
+          <h4 class="text1">Hours done:</h4>
+          <h4 class="text1">Hours Missing:</h4>
+          <h4 class="text1">Hours Unconfirmed:</h4>
+        </div>
+
+        <div id="hours">
+          <h4 class="hours">15</h4>
+          <h4 class="hours">9</h4>
+          <h4 class="hours">17</h4>
+        </div>
+        
+        <button id="add-hours"><img src="../img/plus-icon.svg" alt="plus icon"> <span>Add Hours</span></button>
+      </div>
+      
+      <!-- history log -->
+      <div id="table-bg">
+          <table>
+            <tr>
+              <th>Date</th>
+              <th>Location</th>
+              <th>Hours</th>
+            </tr>
+            <tr>
+              <td>3/18/2020</td>
+              <td>Beach</td>
+              <td>4 Hours</td>
+            </tr>
+            <tr>
+              <td>3/20/2020</td>
+              <td>School</td>
+              <td>4 Hours</td>
+            </tr>
+            <tr>
+              <td>3/22/2020</td>
+              <td>Park</td>
+              <td>5 Hours</td>
+            </tr>
+            <tr>
+              <td>3/24/2020</td>
+              <td>Downtown Office</td>
+              <td>2 Hours</td>
+            </tr>
+            <tr>
+              <td>3/26/2020</td>
+              <td>School</td>
+              <td>6 Hours</td>
+            </tr>
+            <tr>
+              <td>3/28/2020</td>
+              <td>Zoo</td>
+              <td>3 Hours</td>
+            </tr>
+          </table>
+      </div>
+    </div>
+    <!-- footer -->
+    <footer>
+        <ul>
+            <li><a href="about.html">about</a></li>
+            <li><a href="contact-us.html">contact</a></li>
+            <li><a href="#">social</a></li>
+        </ul>
+        <p>&copy; 2021 CS Tracker</p>
+    </footer>
+</body>
+</html>
