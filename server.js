@@ -24,13 +24,13 @@ app.get('/log-hours', function (req, res) {
   res.render('log-hours.ejs')
 });
 
-// log in route (brandon)
+// log in route (anthony)
 app.get('/login', function (req,res){
   console.log('we hit student log in')
   res.render('login.ejs');
 });
 
-// registration route (brandon)
+// registration route (anthony)
 app.get('/register', function (req,res){
   console.log('we hit student registration')
   res.render('register.ejs');
