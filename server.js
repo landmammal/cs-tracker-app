@@ -39,13 +39,13 @@ app.get('/register', function (req,res){
 // admin login route (anthony)
 app.get('/admin-login', function (req,res){
   console.log('we hit admin log in')
-  res.send('welcome to admin log in page');
+  res.render('admin-log.ejs');
 });
 
  // admin registration route (anthony)
 app.get('/admin-register', function (req,res){
   console.log('we hit admin registration')
-  res.send('admin register page here');
+  res.render('admin-registration.ejs');
 });
 
 // admin dash route (keshari)

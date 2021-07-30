@@ -1,0 +1,48 @@
+/* ***************************************
+    Cell styles
+*************************************** */
+@media screen and (max-width: 540px) {
+    footer {
+        bottom: 0;
+    }    
+
+}
+
+
+@media screen and (max-width: 320px) {
+    footer {
+        position: static;
+        bottom: 0;
+    }    
+    
+}
+@media screen and (max-width: 280px) {
+    footer {
+        position: absolute;
+        bottom: 0;
+    }    
+
+}
+
+@media screen and (min-width: 1000px) {
+    footer {
+        position: absolute;
+        /* bottom: -30px; */
+    }    
+
+    #app-title {
+    
+        left: 44.5%;
+    
+    }
+
+    ul {
+        margin-left: 28%;
+    }
+
+    p {
+        margin: 8.75px 47%;    
+    }
+
+}
+
