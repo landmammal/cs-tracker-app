@@ -28,5 +28,7 @@ Create Table loghours (
   approved bool,
   student_id int
   );
+
+  -- brandon table name centers with columns name, location, phone, contact_person, approved
   
   DROP DATABASE CS_Tracker;
