@@ -270,6 +270,7 @@ p {
     border-radius: 126px;
     height: 40px;
     width: 80%;
+    text-align: center;
 }
 
 .form {
