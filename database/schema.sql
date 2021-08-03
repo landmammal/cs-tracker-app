@@ -16,19 +16,25 @@ CREATE TABLE Users(
 );
 
 Create Table loghours (
-  ID int,
-  date timestamp,
-  name varchar(255),
-  location varchar(255),
-  contact varchar(255),
-  description text,
-  start_time timestamp,
-  end_time timestamp,
-  total_hours float,
-  approved bool,
-  student_id int
+	ID int,
+	date timestamp,
+	name varchar(255),
+	location varchar(255),
+	contact varchar(255),
+	description text,
+	start_time timestamp,
+	end_time timestamp,
+	total_hours float,
+	approved bool,
+	student_id int
   );
 
-  -- brandon table name centers with columns name, location, phone, contact_person, approved
+Create Table centers (
+  	  name varchar(255),
+	  location varchar(255),
+	  phone int,
+	  contact_person varchar(255),
+	  approved boolean
+)
   
   DROP DATABASE CS_Tracker;
