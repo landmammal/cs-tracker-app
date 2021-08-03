@@ -30,5 +30,11 @@ Create Table loghours (
   );
 
   -- brandon table name centers with columns name, location, phone, contact_person, approved
-  
+  Create Table centers (
+    name varchar(255),
+    location varchar(255),
+    phone int,
+    contact_person varchar(255),
+    approved varchar(255)
+  )
   DROP DATABASE CS_Tracker;
