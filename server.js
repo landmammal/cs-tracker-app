@@ -1,10 +1,12 @@
 const express = require('express')
 const db = require("./models");
 const passport = require("./config/passport");
+
+const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const bodyParser = require("body-parser");
 
-
+// pry = require('pryjs')
 
 
 
@@ -19,12 +21,13 @@ app.set('view-engine', 'ejs');
 app.use(express.static("./public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cookieParser()); // required before session.
 app.use(
   session({ secret: "keyboard cat", resave: false, saveUninitialized: true })
 );
-
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 
 
@@ -32,7 +35,7 @@ app.use(passport.session());
 
 // student profile route
 app.get('/profile', function (req, res) {
-  console.log("you hit the profile route");
+  console.log(req.user);
   res.render('profile.ejs');
 });
 
@@ -42,6 +45,35 @@ app.get('/log-hours', function (req, res) {
   res.render('log-hours.ejs')
 });
 
+// student post loghours
+app.post('/log-hours', function (req, res) {
+  console.log("you hit the log hours Post route");
+  // capture the inputs
+  let logInfo = req.body;
+  logInfo.UserId = req.user.id
+
+  var today = new Date();
+  var dd = String(today.getDate())
+  var mm = String(today.getMonth())
+  var yyyy = today.getFullYear();
+  today = mm + '/' + dd + '/' + yyyy;
+  var timeStart = new Date(today +  " " + logInfo.start_time).getHours();
+  var timeEnd = new Date(today + " " + logInfo.end_time).getHours();
+  
+  var total_hours = timeEnd - timeStart;
+  logInfo.total_hours = total_hours
+
+  // we need to store the inputs in database log hours
+  db.LogHours.create(logInfo)
+    .then((log) => {
+      // return log created
+      res.redirect("/profile");
+    })
+    .catch((err) => {
+      console.log("Error while creating log : ", err);
+    });
+});
+
 // log in route (anthony)
 app.get('/login', function (req,res){
   console.log('we hit student log in')
@@ -49,8 +81,8 @@ app.get('/login', function (req,res){
 });
 
 app.post('/login', passport.authenticate("local-signin", {
-    successRedirect: "/profile",
-    failureRedirect: "/login"
+  successRedirect: "/profile",
+  failureRedirect: "/login"
 }));
 
 // registration route (anthony)

@@ -33,15 +33,68 @@
     <div id="form-backdrop" class="form-backdrop">
         <h2 class="form-title">Log Hours</h2>
 
-        <form class="form" action="">
+        <form class="form" action="/log-hours" method="POST">
             <input class="form-input" type="text" id="date" name="date" placeholder="Date"><br>
             <input class="form-input" type="text" id="Location" name="location" placeholder="Location"><br>
-            <input class="form-input" type="text" id="start-time" name="start-time" placeholder="Start Time"><br>
-            <input class="form-input" type="text" id="end-time" name="end-time" placeholder="End Time"><br>
+            <select class="form-input"  id="start-time" name="start_time" placeholder="Start Time">
+                <option value="00:00:00">12:00 am</option>
+                <option value="01:00:00">1:00 am</option>
+                <option value="02:00:00">2:00 am</option>
+                <option value="03:00:00">3:00 am</option>
+                <option value="04:00:00">4:00 am</option>
+                <option value="05:00:00">5:00 am</option>
+                <option value="06:00:00">6:00 am</option>
+                <option value="07:00:00">7:00 am</option>
+                <option value="08:00:00">8:00 am</option>
+                <option value="09:00:00">9:00 am</option>
+                <option value="10:00:00">10:00 am</option>
+                <option value="11:00:00">11:00 am</option>
+                <option value="12:00:00">12:00 pm</option>
+                <option value="13:00:00">1:00 pm</option>
+                <option value="14:00:00">2:00 pm</option>
+                <option value="15:00:00">3:00 pm</option>
+                <option value="16:00:00">4:00 pm</option>
+                <option value="17:00:00">5:00 pm</option>
+                <option value="18:00:00">6:00 pm</option>
+                <option value="19:00:00">7:00 pm</option>
+                <option value="20:00:00">8:00 pm</option>
+                <option value="21:00:00">9:00 pm</option>
+                <option value="22:00:00">10:00 pm</option>
+                <option value="23:00:00">11:00 pm</option>
+            </select>                
+                
+                <br>
+            <select class="form-input"  id="end-time" name="end_time" placeholder="End Time">
+                 <option value="00:00:00">12:00 am</option>
+                <option value="01:00:00">1:00 am</option>
+                <option value="02:00:00">2:00 am</option>
+                <option value="03:00:00">3:00 am</option>
+                <option value="04:00:00">4:00 am</option>
+                <option value="05:00:00">5:00 am</option>
+                <option value="06:00:00">6:00 am</option>
+                <option value="07:00:00">7:00 am</option>
+                <option value="08:00:00">8:00 am</option>
+                <option value="09:00:00">9:00 am</option>
+                <option value="10:00:00">10:00 am</option>
+                <option value="11:00:00">11:00 am</option>
+                <option value="12:00:00">12:00 pm</option>
+                <option value="13:00:00">1:00 pm</option>
+                <option value="14:00:00">2:00 pm</option>
+                <option value="15:00:00">3:00 pm</option>
+                <option value="16:00:00">4:00 pm</option>
+                <option value="17:00:00">5:00 pm</option>
+                <option value="18:00:00">6:00 pm</option>
+                <option value="19:00:00">7:00 pm</option>
+                <option value="20:00:00">8:00 pm</option>
+                <option value="21:00:00">9:00 pm</option>
+                <option value="22:00:00">10:00 pm</option>
+                <option value="23:00:00">11:00 pm</option>
+            </select>                 
+                <br>
             <input class="form-input" type="text" id="name" name="name" placeholder="Center Name"><br>
-            <input class="form-input" type="text" id="contact-person" name="contact-person" placeholder="Contact Person"><br>
+            <input class="form-input" type="text" id="contact-person" name="contact" placeholder="Contact Person"><br>
             <input class="form-input" type="text" id="description" name="description" placeholder="Description" style="height: 70px;"><br>
-            <button type="button" class="form-button">Log</button>
+            <button class="form-button">Log</button>
         </form> 
     </div>
     

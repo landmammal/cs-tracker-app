@@ -15,6 +15,10 @@ module.exports = (sequelize, DataTypes) => {
   });
   User.associate = function(models) {
     // associations can be defined here
+    User.hasMany(models.LogHours, {
+      as: "loghours",
+      onDelete: "CASCADE"
+    });
   };
 
   User.prototype.validPassword = function(password) {
