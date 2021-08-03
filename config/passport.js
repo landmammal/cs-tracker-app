@@ -27,11 +27,7 @@ passport.use(
           name: req.body.name,
           school: req.body.school,
           student_id: req.body.student_id,
-          total_hours: 100,
-          done_hours: req.body.done_hours,
-
-          // add the rest of the fields
-          
+          total_hours: 100,          
         }).then(function(newUser) {
           if (newUser) {
             return done(null, newUser);
