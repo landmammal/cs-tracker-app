@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       approved: DataTypes.BOOLEAN,
       student_id: DataTypes.INTEGER,
   });
-  User.associate = function(models) {
+  LogHours.associate = function(models) {
     // associations can be defined here
   };
 
