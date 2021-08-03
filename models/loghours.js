@@ -4,8 +4,7 @@ const bcrypt = require("bcryptjs");
 
 module.exports = (sequelize, DataTypes) => {
  const LogHours = sequelize.define("LogHours", {
-      ID: DataTypes.INTEGER,
-      date: DataTypes.INTEGER,
+      date: DataTypes.DATE,
       name: DataTypes.STRING,
       location: DataTypes.STRING,
       contact: DataTypes.STRING,
