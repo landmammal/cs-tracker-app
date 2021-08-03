@@ -25,7 +25,10 @@ passport.use(
           email: email,
           password: password,
           name: req.body.name,
+          school: req.body.school,
+          student_id: req.body.student_id,
           total_hours: 100,
+          done_hours: req.body.done_hours,
 
           // add the rest of the fields
           
