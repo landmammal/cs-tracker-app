@@ -58,7 +58,7 @@ passport.use(  "local-signin",
 );
 
 passport.serializeUser((user, done) => {
-  console.log("serializing user: ", user.id);
+  // console.log("serializing user: ", user.id);
   done(null, user);
 });
 
