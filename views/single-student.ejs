@@ -25,12 +25,14 @@
       <h2 id="app-title">CS Tracker</h2>
       <img src="../img/hamburger-menu.svg" alt="Menu" id="menu-icon">
   </nav>
+  
+  <% var missing_hours = student.total_hours - student.done_hours %>
 
 
     <!-- profile -->
     <div id="section">
       <img id="profile-pic" src="../img/profile-img.svg" alt="profile picture">
-      <h3>Jon Doe</h3>
+      <h3><%= student.name %></h3>
     </div>
 
     <!-- student info -->
@@ -42,9 +44,9 @@
         <h4 class="text1">Hours Unconfirmed:</h4>
       </div>
       <div id="hours">
-        <h4 class="hours">15</h4>
-        <h4 class="hours">9</h4>
-        <h4 class="hours">17</h4>
+        <h4 class="hours"><%= student.done_hours %></h4>
+        <h4 class="hours"><%= missing_hours %></h4>
+        <h4 class="hours"><%= unconfirmed_hours %></h4>   
       </div>
     </div>
 
@@ -55,70 +57,27 @@
           <tr>
             <th>Date</th>
             <th>Location</th>
-            <th>Hour</th>
+            <th>Hours</th>
             <th>Contact</th>
             <th>Confirmed</th>
           </tr>
-          <tr>
-            <td>3/18/20</td>
-            <td>Beach</td>
-            <td>4 H</td>
-            <td>786-908-6469</td>
-            <td> 
-                <input type="checkbox">
-                <label for="confirmed"> </label>
-            </td>
-          </tr>
-          <tr>
-            <td>3/20/20</td>
-            <td>School</td>
-            <td>4 H</td>
-            <td>786-908-6469</td>
-            <td>
-                <input type="checkbox">
-                <label for="confirmed"> </label>    
-            </td>
-          </tr>
-          <tr>
-            <td>3/22/20</td>
-            <td>Park</td>
-            <td>5 H</td>
-            <td>786-908-6469</td>
-            <td>
-                <input type="checkbox">
-                <label for="confirmed"> </label>
-            </td>
-          </tr>
-          <tr>
-            <td>3/24/20</td>
-            <td>Downtown Office</td>
-            <td>2 H</td>
-            <td>786-908-6469</td>
-            <td>
-                <input type="checkbox">
-                <label for="confirmed"> </label>
-            </td>
-          </tr>
-          <tr>
-            <td>3/26/20</td>
-            <td>School</td>
-            <td>6 H</td>
-            <td>786-908-6469</td>
-            <td>
-                <input type="checkbox">
-                <label for="confirmed"> </label>
-            </td>
-          </tr>
-          <tr>
-            <td>3/28/20</td>
-            <td>Zoo</td>
-            <td>3 H</td>
-            <td>786-908-6469</td>
-            <td>
-                <input type="checkbox">
-                <label for="confirmed"> </label>
-            </td>
-          </tr>
+
+           <% for (let index = 0; index < unconfirmed_records.length; index++) { %>
+              <% const record = unconfirmed_records[index];  %>
+              <tr>
+                <td> <%= record.date %> </td>
+                <td> <%= record.location %> </td>
+                <td> <%= record.total_hours %> </td>       
+                <td> <%= record.contact %> </td>  
+                <td> 
+                  <input type="checkbox">
+                  <label for="confirmed"> </label>
+                </td>                     
+              </tr>              
+            <% } %> 
+
+    
+          
         </table>
     </div>
 
