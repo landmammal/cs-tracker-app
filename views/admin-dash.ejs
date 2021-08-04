@@ -31,7 +31,6 @@
 <!-- main content -->
     <div id="wrapper">
 
-    
       <!-- student hours log -->
       <h3 id="table-title">Unconfirmed Student Hours</h3>
       <!-- Search -->
@@ -47,55 +46,18 @@
               <th>Contact</th>
               <th>Unconfirmed</th>
             </tr>
-            <tr>
-              <td>1238765</td>
-              <td>Chuck Norris</td>
-              <td>10</td>
-              <td>90</td>
-              <td>50</td>
-            </tr>
-            <tr>
-              <td>3230165</td>
-              <td>Mike Jones</td>
-              <td>25</td>
-              <td>75</td>
-              <td>33</td>
-            </tr>
-            <tr>
-              <td>2139165</td>
-              <td>Devon Wilkes</td>
-              <td>30</td>
-              <td>20</td>
-              <td>10</td>
-            </tr>
-            <tr>
-              <td>9839165</td>
-              <td>Jon Batista</td>
-              <td>45</td>
-              <td>55</td>
-              <td>40</td>
-            </tr>
-            <tr>
-              <td>1039168</td>
-              <td>Bob Smith</td>
-              <td>48</td>
-              <td>57</td>
-              <td>0</td>
-            </tr>
-            <tr>
-              <td>0239165</td>
-              <td>Kesha Jones</td>
-              <td>68</td>
-              <td>32</td>
-              <td>10</td>
-            </tr>
-            <tr>
-              <td>5239165</td>
-              <td>Nakoma Quintana</td>
-              <td>100</td>
-              <td>0</td>
-              <td>0</td>
-            </tr>
+            <% for (let index = 0; index < unconfirmed_hours.length; index++) { %>
+              <% const record = unconfirmed_hours[index];  %>
+              <tr>                
+                  <td> <%= record.date %> </td>
+                  <td> <a href="/single-student/<%= record.UserId %>"><%= record.name %></a> </td>
+                  <td> <%= record.location %> </td>       
+                  <td> <%= record.contact %> </td> 
+                  <td> <%= record.total_hours %> </td>                             
+              </tr>      
+
+            <% } %>       
+           
           </table>
       </div>
 
