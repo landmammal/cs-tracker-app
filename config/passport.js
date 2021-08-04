@@ -18,8 +18,15 @@ passport.use(
           return done(null, false, { message: "That email is already taken." });
         }
 
-        console.log(req.body);
+        var schoolCode = "admin";
+        var permission = false;
 
+        if (req.body.code) {
+          if (req.body.code === schoolCode) {
+           permission = true;
+          }
+        }
+        
         db.User.create({
           // ANTHONY FINSIHED ADDING ALL OUR USERS INFO
           email: email,
@@ -29,12 +36,14 @@ passport.use(
           student_id: req.body.student_id,
           total_hours: 100,
           done_hours: 0,
+          admin: permission
       
         }).then(function(newUser) {
           if (newUser) {
             return done(null, newUser);
           }
         });
+
       });
     }
   )

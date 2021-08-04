@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       description: DataTypes.STRING,
       start_time: DataTypes.STRING,
       end_time: DataTypes.STRING,
+      school: DataTypes.STRING,
       total_hours: DataTypes.INTEGER,
       approved: DataTypes.BOOLEAN
  });

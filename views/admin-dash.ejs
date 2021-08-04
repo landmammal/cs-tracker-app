@@ -31,7 +31,6 @@
 <!-- main content -->
     <div id="wrapper">
 
-    
       <!-- student hours log -->
       <h3 id="table-title">Unconfirmed Student Hours</h3>
       <!-- Search -->
@@ -44,34 +43,15 @@
               <th>Name</th>
               <th>Unconfirmed</th>
             </tr>
-            <tr>
-              <td>Chuck Norris</td>
-              <td>50</td>
-            </tr>
-            <tr>
-              <td>Mike Jones</td>
-              <td>33</td>
-            </tr>
-            <tr>
-              <td>Devon Wilkes</td>
-              <td>10</td>
-            </tr>
-            <tr>
-              <td>Jon Batista</td>
-              <td>40</td>
-            </tr>
-            <tr>
-              <td>Bob Smith</td>
-              <td>0</td>
-            </tr>
-            <tr>
-              <td>Kesha Jones</td>
-              <td>10</td>
-            </tr>
-            <tr>
-              <td>Nakoma Quintana</td>
-              <td>0</td>
-            </tr>
+            <% for (let index = 0; index < unconfirmed_hours.length; index++) { %>
+              <% const record = unconfirmed_hours[index];  %>
+              <tr>                                  
+                  <td> <a href="/single-student/<%= record.UserId %>"><%= record.name %></a> </td>                                    
+                  <td> <%= record.total_hours %> </td>                             
+              </tr>      
+
+            <% } %>       
+           
           </table>
       </div>
 
