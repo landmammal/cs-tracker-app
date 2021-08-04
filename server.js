@@ -33,10 +33,41 @@ app.use(passport.session());
 
 // app routes
 
+// root route
+app.get('/', function (req, res) {
+  res.redirect('/profile');
+});
+
+
 // student profile route
 app.get('/profile', function (req, res) {
-  console.log(req.user);
-  res.render('profile.ejs');
+  // console.log(req.user);
+  db.LogHours.findAll({
+  where:{
+    UserId: req.user.id
+  }
+  }).then(function (all_hours) {
+  
+    // find unconfirmed hours and send them to profile
+  let unconfirmed_hours = 0
+  let confirmed_hours = []
+  
+  for (let index = 0; index < all_hours.length; index++) {
+    if (all_hours[index].approved === false) {
+      unconfirmed_hours = unconfirmed_hours + all_hours[index].total_hours;      
+    } else {
+      confirmed_hours.push(all_hours[index])
+    }  
+  }
+
+  console.log(unconfirmed_hours, confirmed_hours);
+    
+  res.render('profile.ejs', {user: req.user, unconfirmed_hours, confirmed_hours});
+
+}).catch(function(err){
+  console.log('something went wrong looking at loghours for this user : ', err);
+});
+
 });
 
 // student log hours route (keshari)
@@ -51,6 +82,7 @@ app.post('/log-hours', function (req, res) {
   // capture the inputs
   let logInfo = req.body;
   logInfo.UserId = req.user.id
+  logInfo.approved = false
 
   var today = new Date();
   var dd = String(today.getDate())
