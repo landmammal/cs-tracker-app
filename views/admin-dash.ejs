@@ -40,19 +40,13 @@
       <div class="table-bkg">
           <table>
             <tr> 
-              <th>Date</th>
               <th>Name</th>
-              <th>Location</th>
-              <th>Contact</th>
               <th>Unconfirmed</th>
             </tr>
             <% for (let index = 0; index < unconfirmed_hours.length; index++) { %>
               <% const record = unconfirmed_hours[index];  %>
-              <tr>                
-                  <td> <%= record.date %> </td>
-                  <td> <a href="/single-student/<%= record.UserId %>"><%= record.name %></a> </td>
-                  <td> <%= record.location %> </td>       
-                  <td> <%= record.contact %> </td> 
+              <tr>                                  
+                  <td> <a href="/single-student/<%= record.UserId %>"><%= record.name %></a> </td>                                    
                   <td> <%= record.total_hours %> </td>                             
               </tr>      
 
