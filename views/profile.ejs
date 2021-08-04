@@ -25,12 +25,12 @@
         <a href="/logout">Logout</a>
         <img src="../img/hamburger-menu.svg" alt="Menu" id="menu-icon">
     </nav>
-
+    <% var missing_hours = user.total_hours - user.done_hours %>
     <div id="wrapper">
       <!-- profile -->
       <div id="section">
         <img id="profile-pic" src="../img/profile-img.svg" alt="profile picture">
-        <h3>Jon Doe</h3>
+        <h3><%= user.name %></h3>
       </div>
 
       <!-- student info -->
@@ -41,12 +41,12 @@
           <h4 class="text1">Hours Missing:</h4>
           <h4 class="text1">Hours Unconfirmed:</h4>
         </div>
-
+        
         <div id="hours">
-          <h4 class="hours">15</h4>
-          <h4 class="hours">9</h4>
-          <h4 class="hours">17</h4>
-        </div>
+          <h4 class="hours"><%= user.done_hours %></h4>
+          <h4 class="hours"><%= missing_hours %></h4>
+          <h4 class="hours"><%= unconfirmed_hours %></h4>        
+        </div>  
         <a href="/log-hours">
           <button id="add-hours"><img src="../img/plus-icon.svg" alt="plus icon"> <span>Add Hours</span></button>
         </a>
@@ -60,36 +60,17 @@
               <th>Location</th>
               <th>Hours</th>
             </tr>
-            <tr>
-              <td>3/18/2020</td>
-              <td>Beach</td>
-              <td>4 Hours</td>
-            </tr>
-            <tr>
-              <td>3/20/2020</td>
-              <td>School</td>
-              <td>4 Hours</td>
-            </tr>
-            <tr>
-              <td>3/22/2020</td>
-              <td>Park</td>
-              <td>5 Hours</td>
-            </tr>
-            <tr>
-              <td>3/24/2020</td>
-              <td>Downtown Office</td>
-              <td>2 Hours</td>
-            </tr>
-            <tr>
-              <td>3/26/2020</td>
-              <td>School</td>
-              <td>6 Hours</td>
-            </tr>
-            <tr>
-              <td>3/28/2020</td>
-              <td>Zoo</td>
-              <td>3 Hours</td>
-            </tr>
+            
+            <% for (let index = 0; index < confirmed_hours.length; index++) { %>
+              <% const record = confirmed_hours[index];  %>
+              <tr>
+                <td> <%= record.date %> </td>
+                <td> <%= record.name %> </td>
+                <td> <%= record.total_hours %> </td>       
+              </tr>              
+            <% } %> 
+
+         
           </table>
       </div>
     </div>
