@@ -348,10 +348,16 @@ p {
     font-size: 14px;
 }
 
-/*******************
-    Login Styles
-*******************/
+/***************************************
+    Login and Registration Styles
+***************************************/
 #register-button {
+    float: right;
+    top: 9px;
+    color: #F71735;
+}
+
+#login-button {
     float: right;
     top: 9px;
     color: #F71735;
