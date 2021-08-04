@@ -347,3 +347,12 @@ p {
 #ss-table{
     font-size: 14px;
 }
+
+/*******************
+    Login Styles
+*******************/
+#register-button {
+    float: right;
+    top: 9px;
+    color: #F71735;
+}
