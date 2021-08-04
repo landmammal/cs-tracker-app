@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     location: DataTypes.STRING,
     phone: DataTypes.STRING,
     contact_person: DataTypes.STRING,
-    approved: DataTypes.BOOLEAN,}
+    approved: DataTypes.BOOLEAN,
   })
                                
   return Center;
