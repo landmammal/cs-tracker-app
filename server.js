@@ -54,7 +54,8 @@ app.get('/profile', function (req, res) {
   
   for (let index = 0; index < all_hours.length; index++) {
     if (all_hours[index].approved === false) {
-      unconfirmed_hours = unconfirmed_hours + all_hours[index].total_hours;      
+      unconfirmed_hours = unconfirmed_hours + all_hours[index].total_hours;
+      
     } else {
       confirmed_hours.push(all_hours[index])
     }  
@@ -64,11 +65,11 @@ app.get('/profile', function (req, res) {
     
   res.render('profile.ejs', {user: req.user, unconfirmed_hours, confirmed_hours});
 
-}).catch(function(err){
-  console.log('something went wrong looking at loghours for this user : ', err);
-});
+  }).catch(function(err){
+    console.log('something went wrong looking at loghours for this user : ', err);
+  });
 
-});
+  });
 
 // student log hours route (keshari)
 app.get('/log-hours', function (req, res) {
@@ -83,6 +84,7 @@ app.post('/log-hours', function (req, res) {
   let logInfo = req.body;
   logInfo.UserId = req.user.id
   logInfo.approved = false
+  logInfo.school = req.user.school
 
   var today = new Date();
   var dd = String(today.getDate())
@@ -131,15 +133,23 @@ app.post('/register',   passport.authenticate("local-signup", {
 
 // admin login route (anthony)
 app.get('/admin-login', function (req,res){
-  console.log('we hit admin log in')
   res.render('admin-log.ejs');
 });
 
+app.post('/admin-login', passport.authenticate("local-signin", {
+    successRedirect: "/admin-dash",
+    failureRedirect: "/login"
+}));
+
  // admin registration route (anthony)
 app.get('/admin-register', function (req,res){
-  console.log('we hit admin registration')
   res.render('admin-registration.ejs');
 });
+
+app.post('/admin-register', passport.authenticate("local-signup", {
+    successRedirect: "/admin-dash",
+    failureRedirect: "/register"
+}));
 
 // logout route
 app.get("/logout", function(req, res) {
@@ -149,14 +159,58 @@ app.get("/logout", function(req, res) {
 
 // admin dash route (keshari)
 app.get('/admin-dash', function (req, res) {
-  console.log("you hit the admin dash route");
-  res.render('admin-dash.ejs')
-})
+  
+  if (req.user.admin === false) {
+    res.render('admin-dash-denied.ejs')     
+  } else {
+    db.LogHours.findAll({
+      where: {
+        school: req.user.school,
+        approved: false
+      }
+    }).then(function (unconfirmed_hours) {      
+      // find unconfirmed hours and send them to admin dash
+      res.render('admin-dash.ejs', {unconfirmed_hours})     
+    }).catch(function(err){
+      console.log('something went wrong looking at log hours for this all users : ', err);
+    });
+  }
+  
+
+});
 
 // admin single student route (keshari)
-app.get('/single-student', function (req, res) {
-  console.log("you hit the single-student route");
-  res.render('single-student.ejs')
+app.get('/single-student/:id', function (req, res) {
+  db.User.findOne({
+    where: {
+      id: req.params.id
+    }
+  }).then(function (student) {
+     db.LogHours.findAll({
+        where:{
+          UserId: student.id,
+          approved: false
+        }
+      }).then(function (all_hours) {
+      
+        // find unconfirmed hours and send them to profile
+      let unconfirmed_hours = 0
+      let unconfirmed_records = []
+      
+      for (let index = 0; index < all_hours.length; index++) {        
+          unconfirmed_hours = unconfirmed_hours + all_hours[index].total_hours;          
+          unconfirmed_records.push(all_hours[index])        
+      }
+      
+      res.render('single-student.ejs', { student, unconfirmed_hours, unconfirmed_records })      
+
+  }).catch(function(err){
+    console.log('something went wrong looking at loghours for this user : ', err);
+  });
+
+
+  })
+  
 })
 
 
