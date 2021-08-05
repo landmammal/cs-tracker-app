@@ -171,6 +171,11 @@ app.get("/logout", function(req, res) {
   res.redirect("/login");
 });
 
+app.get("/admin-logout", function(req, res) {
+  req.logout();
+  res.redirect("/admin-login");
+});
+
 // admin dash route (keshari)
 app.get('/admin-dash',isAuthenticated, function (req, res) {
   

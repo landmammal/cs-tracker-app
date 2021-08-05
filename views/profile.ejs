@@ -22,14 +22,14 @@
     <nav>
         <img src="../img/logo.svg" alt="CS tracker logo" id="logo">
         <h2 id="app-title">CS Tracker</h2>
-        <a href="/logout">Logout</a>
-        <img src="../img/hamburger-menu.svg" alt="Menu" id="menu-icon">
+        <a href="/logout" id="register-button">Logout</a>
+        <!-- <img src="../img/hamburger-menu.svg" alt="Menu" id="menu-icon"> -->
     </nav>
     <% var missing_hours = user.total_hours - user.done_hours %>
     <div id="wrapper">
       <!-- profile -->
       <div id="section">
-        <img id="profile-pic" src="../public/img/profile-img.svg" alt="profile picture">
+        <img id="profile-pic" src="../public/img/default-pfp.png" alt="profile picture">
         <h3><%= user.name.toUpperCase() %></h3>
       </div>
 
