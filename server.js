@@ -49,8 +49,9 @@ app.get('/profile', function (req, res) {
   }).then(function (all_hours) {
   
     // find unconfirmed hours and send them to profile
-  let unconfirmed_hours = 0
-  let confirmed_hours = []
+    let unconfirmed_hours = 0
+    let confirmed_hours = []
+    let total_hours_done = 0
   
   for (let index = 0; index < all_hours.length; index++) {
     if (all_hours[index].approved === false) {
@@ -58,12 +59,25 @@ app.get('/profile', function (req, res) {
       
     } else {
       confirmed_hours.push(all_hours[index])
+      total_hours_done = total_hours_done + all_hours[index].total_hours
     }  
   }
-
-  console.log(unconfirmed_hours, confirmed_hours);
+  
+  db.User.update({
+       done_hours: total_hours_done,
+   },
+     {
+      where: {
+        id: req.user.id
+      }
+    }).then(function (updatedUser) {
+      console.log(updatedUser);
+      console.log(unconfirmed_hours, confirmed_hours);
+      req.user.done_hours = total_hours_done
+      res.render('profile.ejs', {user: req.user, unconfirmed_hours, confirmed_hours});
+    })
     
-  res.render('profile.ejs', {user: req.user, unconfirmed_hours, confirmed_hours});
+    
 
   }).catch(function(err){
     console.log('something went wrong looking at loghours for this user : ', err);
@@ -211,6 +225,28 @@ app.get('/single-student/:id', function (req, res) {
 
   })
   
+})
+
+app.post("/approved-hours", function (req, res) {
+  console.log('hit approved hours post');
+  console.log(Object.keys(req.body));
+  var recordIds = Object.keys(req.body)
+
+  for (let index = 0; index < recordIds.length; index++) {
+    const singleId = parseInt(recordIds[index]);
+
+   db.LogHours.update({
+       approved: true,
+   },
+     {
+      where: {
+        id: singleId
+      }
+    })
+  }
+
+
+  res.redirect('/admin-dash')
 })
 
 
