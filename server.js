@@ -6,7 +6,7 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const bodyParser = require("body-parser");
 
-// pry = require('pryjs')
+const isAuthenticated = require("./config/middleware/isAuthenticated");
 
 
 
@@ -34,13 +34,13 @@ app.use(passport.session());
 // app routes
 
 // root route
-app.get('/', function (req, res) {
+app.get('/', isAuthenticated, function (req, res) {
   res.redirect('/profile');
 });
 
 
 // student profile route
-app.get('/profile', function (req, res) {
+app.get('/profile', isAuthenticated, function (req, res) {
   // console.log(req.user);
   db.LogHours.findAll({
   where:{
@@ -83,10 +83,10 @@ app.get('/profile', function (req, res) {
     console.log('something went wrong looking at loghours for this user : ', err);
   });
 
-  });
+});
 
 // student log hours route (keshari)
-app.get('/log-hours', function (req, res) {
+app.get('/log-hours',isAuthenticated, function (req, res) {
   console.log("you hit the log hours route");
   res.render('log-hours.ejs')
 });
@@ -172,7 +172,7 @@ app.get("/logout", function(req, res) {
 });
 
 // admin dash route (keshari)
-app.get('/admin-dash', function (req, res) {
+app.get('/admin-dash',isAuthenticated, function (req, res) {
   
   if (req.user.admin === false) {
     res.render('admin-dash-denied.ejs')     
@@ -181,8 +181,10 @@ app.get('/admin-dash', function (req, res) {
       where: {
         school: req.user.school,
         approved: false
-      }
-    }).then(function (unconfirmed_hours) {      
+      },
+      include: ['student']
+    }).then(function (unconfirmed_hours) {
+      // console.log(unconfirmed_hours[0].student.name);
       // find unconfirmed hours and send them to admin dash
       res.render('admin-dash.ejs', {unconfirmed_hours})     
     }).catch(function(err){
@@ -194,7 +196,7 @@ app.get('/admin-dash', function (req, res) {
 });
 
 // admin single student route (keshari)
-app.get('/single-student/:id', function (req, res) {
+app.get('/single-student/:id',isAuthenticated, function (req, res) {
   db.User.findOne({
     where: {
       id: req.params.id
@@ -227,6 +229,7 @@ app.get('/single-student/:id', function (req, res) {
   
 })
 
+// route for approving hours
 app.post("/approved-hours", function (req, res) {
   console.log('hit approved hours post');
   console.log(Object.keys(req.body));
