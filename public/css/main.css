@@ -355,10 +355,14 @@ p {
     float: right;
     top: 9px;
     color: #F71735;
+    margin-top: 12px;
+    margin-right: 12px;
 }
 
 #login-button {
     float: right;
     top: 9px;
     color: #F71735;
+    margin-top: 12px;
+    margin-right: 12px;
 }
