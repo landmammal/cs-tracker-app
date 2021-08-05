@@ -52,37 +52,38 @@
 
     <!-- unconfirmed hours -->
     <h3 id="ss-title"> Unconfirmed Hours</h3>
-    <div class="table-bkg">
-        <table id="ss-table">
-          <tr>
-            <th>Date</th>
-            <th>Location</th>
-            <th>Hours</th>
-            <th>Contact</th>
-            <th>Confirmed</th>
-          </tr>
+    <form action="/approved-hours" method="POST">
+      <div class="table-bkg">
+          <table id="ss-table">
+            <tr>
+              <th>Date</th>
+              <th>Location</th>
+              <th>Hours</th>
+              <th>Contact</th>
+              <th>Confirmed</th>
+            </tr>
 
-           <% for (let index = 0; index < unconfirmed_records.length; index++) { %>
-              <% const record = unconfirmed_records[index];  %>
-              <tr>
-                <td> <%= record.date %> </td>
-                <td> <%= record.location %> </td>
-                <td> <%= record.total_hours %> </td>       
-                <td> <%= record.contact %> </td>  
-                <td> 
-                  <input type="checkbox">
-                  <label for="confirmed"> </label>
-                </td>                     
-              </tr>              
-            <% } %> 
+            <% for (let index = 0; index < unconfirmed_records.length; index++) { %>
+                <% const record = unconfirmed_records[index];  %>
+                <tr>
+                  <td> <%= record.date %> </td>
+                  <td> <%= record.location %> </td>
+                  <td> <%= record.total_hours %> </td>       
+                  <td> <%= record.contact %> </td>  
+                  <td> 
+                    <input type="checkbox" name="<%= record.id %>">
+                    <label for="confirmed"> </label>
+                  </td>                     
+                </tr>              
+              <% } %> 
 
+      
+            
+          </table>
+        </div>
+        <button type="submit" id="save-button" class="form-button">Save</button>
+    </form>
     
-          
-        </table>
-    </div>
-
-    
-    <button type="button" id="save-button" class="form-button">Save</button>
     
   
 
