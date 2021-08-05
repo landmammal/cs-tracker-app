@@ -46,7 +46,8 @@
     }
 
     .text1 {
-        margin: 13px 50px 20.7px 54.48px;
+        margin: 13px 100px 20.7px 54.48px;
+        /* margin: 13px 50px 20.7px 54.48px; */
         display: inline-block;
         color: white;
         font-family: 'Dosis', sans-serif;
