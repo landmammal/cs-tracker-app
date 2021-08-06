@@ -63,6 +63,8 @@ app.get('/profile', isAuthenticated, function (req, res) {
     }  
   }
   
+  
+    
   db.User.update({
        done_hours: total_hours_done,
    },
@@ -71,8 +73,9 @@ app.get('/profile', isAuthenticated, function (req, res) {
         id: req.user.id
       }
     }).then(function (updatedUser) {
-      console.log(updatedUser);
-      console.log(unconfirmed_hours, confirmed_hours);
+      console.log('user: ' + updatedUser);
+      console.log(unconfirmed_hours);
+      console.log(total_hours_done);
       req.user.done_hours = total_hours_done
       res.render('profile.ejs', {user: req.user, unconfirmed_hours, confirmed_hours});
     })
@@ -235,7 +238,7 @@ app.get('/single-student/:id',isAuthenticated, function (req, res) {
 })
 
 // route for approving hours
-app.post("/approved-hours", function (req, res) {
+app.post("/approved-hours", async function (req, res) {
   console.log('hit approved hours post');
   console.log(Object.keys(req.body));
   var recordIds = Object.keys(req.body)
@@ -243,7 +246,7 @@ app.post("/approved-hours", function (req, res) {
   for (let index = 0; index < recordIds.length; index++) {
     const singleId = parseInt(recordIds[index]);
 
-   db.LogHours.update({
+   await db.LogHours.update({
        approved: true,
    },
      {
